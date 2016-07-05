@@ -1,0 +1,48 @@
+<ion-view view-title="list-cluster">
+
+
+  <ion-nav-bar>
+    <ion-nav-title>
+      Cluster
+    </ion-nav-title>
+    
+    <ion-nav-buttons side="left">
+      <button class="button-icon ion-chevron-left" ng-click="btnBack()">Back</button>
+    </ion-nav-buttons>
+<!--     <ion-nav-buttons side="right">
+      <button class="button-icon ion-chevron-up" value="data.item" ng-click="sortString"></button>
+      <p>{{sortString}}</p>
+    </ion-nav-buttons> -->
+   
+
+  </ion-nav-bar>
+
+  <ion-content>
+
+<!-- {{data.}}({{data.Date}}) -->
+    <div class="list">
+      <div class="item item-avatar-left item-icon-right" ng-click="" ng-repeat="data in status ">
+{{data.mac.substr(0, data.mac.search(".json")).toUpperCase()}}  <br>{{data.attibute}} : {{data.item }}
+<!--         <img src="img/pi_logo.png">
+        <h2>{{data.path
+
+
+
+        }}   {{data.path.substr(0, data.path.search(".json")).toUpperCase()}} 
+
+
+
+
+
+        </h2>
+ -->
+
+
+
+        <i> <class="icon ion-chevron-right"></i>
+
+      </div>
+    </div>
+  </ion-content>
+
+</ion-view>

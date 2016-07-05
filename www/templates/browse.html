@@ -1,0 +1,13 @@
+<ion-view view-title="Browse">
+  <ion-content>
+  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="#item of items">
+    {{ item }}
+  </ion-item>
+</ion-list>
+
+
+    <h1>Browse</h1>
+  </ion-content>
+</ion-view>

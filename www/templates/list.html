@@ -1,0 +1,60 @@
+<ion-view ><!-- view-title="List" -->
+
+
+  <ion-nav-bar>
+    <ion-nav-title>
+      Rasberry PI11
+    </ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="button-icon ion-chevron-search" ng-click="sysch()">Back</button>
+         </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+
+<!-- {{data.}}({{data.Date}}) -->
+<!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
+
+<!-- <div class="bar bar-subheader item-input-inset">
+<label class="item-input-wrapper"> 
+   <i class="icon ion-search placeholder-icon"></i>
+   <input type="text" placeholder="" ng-model="searchBox">
+ </label>
+</div>  -->     
+
+<label class="item item-input">
+  <i class="icon ion-search placeholder-icon"></i>
+  <input type="search" placeholder="Search" ng-model="searchBox">
+</label>
+
+
+<!-- <input type"text" ng-model="searchBox" size=100%> -->
+
+    <div class="list">
+
+      <div class="item item-avatar-left item-icon-right" ng-click="btnDetail(data)" ng-repeat="data in allmac | orderBy:data | filter:searchBox">
+
+        <img src="img/pi_logo.png">
+        <h2>{{data.substr(0, data.search(".json")).toUpperCase()
+
+
+
+        }}   <!--{{data.path.substr(0, data.path.search(".json")).toUpperCase()}} -->
+
+<!-- {{data.hostname}} -->
+
+
+
+        </h2>
+
+
+
+
+        <i> <class="icon ion-chevron-right"></i>
+
+      </div>
+    </div>
+  </ion-content>
+
+</ion-view>
