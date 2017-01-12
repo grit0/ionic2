@@ -1,12 +1,7 @@
 angular.module('MyContact')
 .controller('listclusterController',function ($scope,$state,$stateParams,$rootScope,ponyService) {
 
-var users = {
-	"a":2,
-  'barney':  { 'age': 36, 'active': true },
-  'fred':    { 'age': 40, 'active': false },
-  'pebbles': { 'age': 1,  'active': true }
-};
+
 function has (obj, key) {
   return Object.prototype.hasOwnProperty.call(obj, key);
 }

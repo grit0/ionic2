@@ -36,7 +36,7 @@ angular.module('MyContact')
 .controller('detailController',function ($scope,$state,$http,$stateParams,$ionicPopup) {
     console.log($stateParams.mac);
     //$http.get('https://raw.githubusercontent.com/grit0/status/master/'+$stateParams.mac).then(function(response){
-    $http.get('https://raw.githubusercontent.com/grit0/status/master/all.json').then(function(response){
+    $http.get('https://status-pi.firebaseio.com/.json').then(function(response){
       console.log("connect")
       console.log(response);
       $scope.data= response.data[$stateParams.mac];
@@ -67,7 +67,7 @@ angular.module('MyContact')
       }
     });
     }
-   
+
 
 
 

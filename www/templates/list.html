@@ -1,60 +1,122 @@
-<ion-view ><!-- view-title="List" -->
+  <ion-view ><!-- view-title="List" -->
 
+  <style>
+  #container {
+    /*height: 400px;
+    width: 400px;
+    position: relative;*/
+    /*border:1px solid gray;border-radius:7%;font-size:0.875;word-wrap: break-word; max-width: 100%;*/
+  }
+  #image {
+    /*position: absolute;*/
+    /*left: 0;
+    top: 0;*/
 
-  <ion-nav-bar>
-    <ion-nav-title>
-      Rasberry PI11
-    </ion-nav-title>
+    /*border:1px solid gray;
+    border-radius:7%;
+    font-size:0.875;
+    word-wrap: break-word;
+    width: 100px; // only for IE8
+    max-width: 100%;*/
+  }
 
-        <ion-nav-buttons side="right">
-            <button class="button-icon ion-chevron-search" ng-click="sysch()">Back</button>
-         </ion-nav-buttons>
-  </ion-nav-bar>
+  #text {
+    /*z-index: 100;
+    position: absolute;
+    color: green;*/
 
-  <ion-content>
+    /*font-size: 24px;
+    font-weight: bold;
+    left: 150px;
+    top: 350px;*/
+  }
+    .button
+    {
+    /*background: url(img/pi_model_B.png);
+    background-size:contain contain;
+    background-repeat:no-repeat;*/
+    /*width:100%;*/
+    /*border:1px solid gray;*/
 
-<!-- {{data.}}({{data.Date}}) -->
-<!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
+    /*border-radius:7%;
+    font-size:0.875;
+    word-wrap: break-word;
+    width: 100px; // only for IE8
+    max-width: 100%;*/
 
-<!-- <div class="bar bar-subheader item-input-inset">
-<label class="item-input-wrapper"> 
-   <i class="icon ion-search placeholder-icon"></i>
-   <input type="text" placeholder="" ng-model="searchBox">
- </label>
-</div>  -->     
+    }
+</style>
+    <ion-nav-bar>
+      <ion-nav-title>
+        Rasberry PI11
+      </ion-nav-title>
 
-<label class="item item-input">
-  <i class="icon ion-search placeholder-icon"></i>
-  <input type="search" placeholder="Search" ng-model="searchBox">
-</label>
+          <ion-nav-buttons side="right">
+               <!-- <button ion-button icon-left ng-click="sync()">
+                 <ion-icon name="ion-md-refresh"></ion-icon>
+                 Sync
+               </button> -->
+               <button class="button button-positive"  ng-click="reset()">
+                 <ion-icon name="ion-md-refresh"></ion-icon>
+      Sync
+  </button>
 
+           </ion-nav-buttons>
+    </ion-nav-bar>
 
-<!-- <input type"text" ng-model="searchBox" size=100%> -->
+    <ion-content>
 
-    <div class="list">
+      <!-- {{data.}}({{data.Date}}) -->
+      <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar> -->
 
-      <div class="item item-avatar-left item-icon-right" ng-click="btnDetail(data)" ng-repeat="data in allmac | orderBy:data | filter:searchBox">
+      <!-- <div class="bar bar-subheader item-input-inset">
+      <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="" ng-model="searchBox">
+    </label>
+  </div>  -->
 
-        <img src="img/pi_logo.png">
-        <h2>{{data.substr(0, data.search(".json")).toUpperCase()
-
-
-
-        }}   <!--{{data.path.substr(0, data.path.search(".json")).toUpperCase()}} -->
-
-<!-- {{data.hostname}} -->
-
-
-
-        </h2>
-
-
-
-
-        <i> <class="icon ion-chevron-right"></i>
-
-      </div>
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="Search" ng-model="searchBox">
+  </label>
+  <!-- <input type"text" ng-model="searchBox" size=100%> -->
+  <!-- <ul class="list">
+    <li class="item item-avatar-left item-icon-right" ng-click="btnDetail(key)" ng-repeat="key in allmac | orderBy:data | filter:searchBox">
+      <img src="img/pi_logo.png">
+      <h2>{{key.toUpperCase()}}</h2>
+    </li>
+  </ul> -->
+<div id="list">
+  <!-- <div  ng-repeat="key in allmac "">
+     <div ng-if="$index%4==0" class="row">
+       <div class = "row">
+          <button class = "col" ng-click="btnDetail(key)">{{key}}</button>
+          <button class = "col" ng-click="btnDetail(key)">{{key}}</button>
+          <button class = "col" ng-click="btnDetail(key)">col 3</button>
+        </div>
+     </div>[['a','b'],['c','d'],['e','f']][['aa:aa:aa:aa:aa:aa','b8:27:eb:49:e3:4a'],['b8:27:eb:c8:1f:8a','cc:cc:cc:cc:cc:cc'],['kk:kk:kk:kk:kk:kk','pp:pp:pp:pp:pp:pp']]
+  </div> -->
+<div class="container">
+  <div class="row responsive-sm" >
+    <div class="col" ng-repeat="rows in ['aa:aa:aa:aa:aa:aa','b8:27:eb:49:e3:4a','b8:27:eb:c8:1f:8a','cc:cc:cc:cc:cc:cc','kk:kk:kk:kk:kk:kk','pp:pp:pp:pp:pp:pp']">
+    <button  id="button" ng-click="btnDetail(rows)">
+      <!-- <input type="image" src="img/pi_model_B.png" name="image" max-width="100%" > -->
+      <img id="image" src="img/pi_model_B.png" >
+      <h2 id="text">{{rows.toUpperCase()}}</h2>
+    </button>
     </div>
+  </div>
+</div>
+  <!-- <div class="button button-block button-positive" ng-repeat="item in rows | orderBy:data | filter:searchBox" ng-repeat="rows in ['a','b','c','d','e']">[['aa:aa:aa:aa:aa:aa','b8:27:eb:49:e3:4a'],['b8:27:eb:c8:1f:8a','cc:cc:cc:cc:cc:cc'],['kk:kk:kk:kk:kk:kk','pp:pp:pp:pp:pp:pp']]
+    <div class="span4" ng-repeat="item in rows">{{item}}</div>;border:1px solid gray;border-radius:7%;font-size:0.875;word-wrap: break-word; max-width: 100%;
+  </div> -->
+
+  <!-- <button class="button button-block button-positive" ng:repeat="(index, value) in ['a','b','c','d','e','f'] ">
+      {{value}}<br ng:show="(index+1)%2==0" />
+  </button> -->
+
+</div>
   </ion-content>
 
-</ion-view>
+  </ion-view>

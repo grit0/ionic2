@@ -34,13 +34,6 @@ angular.module('MyContact', ['ionic'])
     controller: 'AppCtrl'
     })
 
-    // .state('list',{
-    //   url:'/list',
-    //   templateUrl:'templates/list.html',
-    //   controller:'listController'
-    // })
-
-
     .state('detail',{
       url:'/detail:{mac}',
       templateUrl:'templates/detail.html',

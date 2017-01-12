@@ -1,3 +1,4 @@
+
 <ion-view>
   <ion-nav-bar>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -11,11 +12,67 @@
             <button class="button-icon ion-chevron-left" ng-click="btnBack()">Back</button>
          </ion-nav-buttons>
 
+
+
+
+
+
   </ion-nav-bar>
   <ion-content>
 
     <ion-slide-box show-pager="false" ion-slide-tabs>
-      <ion-slide ion-slide-tab-label="test"> 
+      <ion-slide ion-slide-tab-label="test">
+        <div class="item item-icon-left" ng-click="">
+          <div class="row">
+            <div class="col" align="middle" >
+              <i class="icon ion-home"></i>
+              <font face="verdana" color="green">hostname : {{data.basic.hostname}}</font>
+            </div>
+            <div class="col"><font size="4" color="blue">uptime :  {{data.basic.date}}</font></div>
+          </div>
+        </div>
+        <div class="item item-icon-left" ng-click="btncluster('basic.voltage')" >
+          <div class="pic" style="position:relative">
+            <div class="ip" align="middle">
+              <i class="ion-earth" style="font-size: 50px !important;"></i><br>
+              192.168.12.2
+            </div>
+            <img src="img/line.png" height="10px" width="200px" style="">
+            <i class="ion-wifi" style="font-size: 50px !important;"></i>
+            <img src="img/line.png" height="10px" width="200px" style="">
+          <div class="pic" style="position:relative">
+
+            <i class="ion-iphone" style="font-size: 50px !important;"></i>
+            </div>
+         </div>
+            <div class="row">
+              <div class="col">Data</div>
+              <div class="col"><i class="ion-ios-cloud-download"></i>{{data.network.eth0.rx_packet}}</div>
+              <div class="col"><i class="ion-ios-cloud-upload"></i>{{data.network.eth0.tx_packet}}</div>
+            </div>
+              <div class="row">
+              <div class="col">Speed</div>
+              <div class="col"><i class="ion-ios-cloud-download"></i>{{data.network.eth0.rx_packet}} KB/s</div>
+              <div class="col"><i class="ion-ios-cloud-upload"></i>{{data.network.eth0.tx_packet}} KB/s</div>
+            </div>      <!-- <button class="button icon-right ion-home"></button> -->
+        </div>
+        <div>
+          <!-- <canvas id="demo-3" style="demo"></canvas> -->
+          <div class="progress">
+           <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+             Free Space
+           </div>
+           <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
+             Used
+           </div>
+           <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+             Avail
+           </div>
+         </div>
+        </div>
+      </ion-slide>
+        <!-- ###############################################  tab2   ############################################### -->
+      <ion-slide ion-slide-tab-label="test">
        <img src="img/pi_model.png" style="margin-left: auto;margin-right: auto;display: block; padding:2em;">
        <div class="list list-inset card">
         <div class = "item item-divider">Basic</div>
@@ -23,19 +80,14 @@
           <i class="icon ion-home"></i>
           Name : {{data.basic.hostname}}
         </div>
-
         <div class="item item-icon-left" ng-click="btncluster('basic.date')">
           <i class="icon ion-home"></i>
           Date : {{data.basic.date}}
-
-
-
         </div>
         <div class="item item-icon-left" ng-click="btncluster('basic.distro_name')">
           <i class="icon ion-information-circled"></i>
           Distro : {{data.basic.distro_name}}
         </div>
-
         <div class="item item-icon-left" ng-click="btncluster('basic.kernel_version')">
           <i class="icon ion-information-circled"></i>
           Kernel version : {{data.basic.kernel_version}}
@@ -50,7 +102,7 @@
             <div ng-if="data.basic.temperature<30">
               <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
               aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{data.basic.temperature}}%">
-              {{data.basic.temperature}} C 
+              {{data.basic.temperature}} C
               </div>
             </div>
             <div ng-if="data.basic.temperature>30 && data.basic.temperature<60">
@@ -66,41 +118,40 @@
               </div>
             </div>
 
-
-         
-        
         </div>
       </div>
-      <div class="row">
-        <div class="col col-75">
           <div class="item item-icon-left" ng-click="btncluster('basic.voltage')">
             <i class="icon ion-information-circled"></i>
             Voltage : {{data.basic.voltage}}
           <!-- <button class="button icon-right ion-home"></button> -->
-         </div>
-        </div>
+          </div>
 
-        <div class="col">
+      </div>
+      <div >
+      <!-- <canvas id="demo-3" style="demo"></canvas>ss -->
+
+
+    </div>
+        <!-- <div class="col">f
              <a class="button button-icon icon ion-android-warning" ng-click="btncalert('basic.voltage')"></a>
-        </div>
-     </div>
-   </div>
-</div>
+        </div> -->
     </ion-slide>
-    <ion-slide ion-slide-tab-label="secondTest"> 
+
+    <!-- ###############################################  tab3   ############################################### -->
+    <ion-slide ion-slide-tab-label="secondTest">
       <div class = "item item-divider">Network</div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
-        IP : {{data.network.eth0.ip}} 
+        IP : {{data.network.eth0.ip}}
       </div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
-        IP loopback : {{data.network.eth0.ip_loopback}} 
+        IP loopback : {{data.network.eth0.ip_loopback}}
       </div>
 
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
-        Broadcost : {{data.network.eth0.bcast}} 
+        Broadcost : {{data.network.eth0.bcast}}
       </div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
@@ -108,11 +159,11 @@
       </div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
-        MAC : {{data.network.eth0.mac}} 
+        MAC : {{data.network.eth0.mac}}
       </div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
-        RX packet : {{data.network.eth0.rx_packet}} 
+        RX packet : {{data.network.eth0.rx_packet}}
       </div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
@@ -120,7 +171,7 @@
       </div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
-        RX bytes : {{data.network.eth0.rx_bytes}} 
+        RX bytes : {{data.network.eth0.rx_bytes}}
       </div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
@@ -128,36 +179,30 @@
       </div>
       <div class="item item-icon-left">
         <i class="icon ion-earth"></i>
-        
-<div class="container">RAM
-  <div class="progress">
-    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{data.network.eth0.rx_packet/10000*100}}%">
-      {{data.network.eth0.rx_packet/10000*100}}%
-    </div>
-  </div>
-</div>
-
-
-
-      </div>
-  <div class="c100 p15 ">
-    <span>15%</span>
-    <div class="slice">
-      <div class="bar"></div>
-      <div class="fill"></div>
-    </div>
-  </div>
-          <div>
-                      <canvas id="canvas" width="400" height="400" style="background-color:#333">
-          </canvas>
+        <div class="container">RAM
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{data.network.eth0.rx_packet/10000*100}}%">
+              {{data.network.eth0.rx_packet/10000*100}}%
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="c100 p15 ">
+        <span>15%</span>
+        <div class="slice">
+          <div class="bar"></div>
+          <div class="fill"></div>
+        </div>
+      </div>
+
     </ion-slide>
+    <!-- ###############################################  tab4   ############################################### -->
     <ion-slide ion-slide-tab-label="<b>boldTest</b>"><h1>Tab 3</h1></ion-slide>
   </ion-slide-box>
 
 
 
-  
+
 
 
 

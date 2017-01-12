@@ -25,10 +25,25 @@
     <script src="controllers/listControl.js"></script>
     <script src="controllers/detailControl.js"></script>
     <script src="controllers/listclusterControl.js"></script>
-    <script src="controllers/config_alertController.js"></script> 
+    <script src="controllers/config_alertController.js"></script>
 
     <link href="css/slidingTabs.css" rel="stylesheet">
     <link href="css/slidingTabs.min.css" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="templates/waterbubble.js"></script>
+    <script>
+    var used=5.6
+    var total=15
+    $('#demo-3').waterbubble({txt: (used/total*100).toFixed(0)+'%',data:used/total});
+    </script>
+
+    <link rel="stylesheet" href="examples.css">
+    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="radial-progress-bar.js"></script>
+    <script src="examples.js"></script>
+
+
   </head>
   <body ng-app="MyContact">
 
